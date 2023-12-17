@@ -1,11 +1,12 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+import styles from '@/styles/Home.module.css';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function Home(props) {
+  console.log(props);
   return (
     <>
       <Head>
@@ -110,5 +111,18 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
+}
+export async function getServerSideProps(context) {
+  let res = await fetch('http://localhost:3000/api/users', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  let allPosts = await res.json();
+
+  return {
+    props: { allPosts },
+  };
 }
