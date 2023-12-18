@@ -8,7 +8,7 @@ function Context({ children }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      let res = await fetch('http://localhost:3000/api/users', {
+      let res = await fetch('/api/users', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
