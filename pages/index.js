@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 
-export default function Home(props) {
-  console.log(props);
+export default function Home() {
   return (
     <>
       <Head>
@@ -14,17 +13,4 @@ export default function Home(props) {
       <h1>Homepage</h1>
     </>
   );
-}
-export async function getServerSideProps(context) {
-  let res = await fetch('http://localhost:3000/api/users', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  let allPosts = await res.json();
-
-  return {
-    props: { allPosts },
-  };
 }
