@@ -7,7 +7,21 @@ const Profile = () => {
   const { englishUsers, mathUsers } = useContext(AllUsers);
   const users = [...englishUsers, ...mathUsers];
   const user = users.find((user) => user.id_code === id);
-  return <div>Profile {id}</div>;
+
+  return (
+    <div>
+      {user ? (
+        <>
+          <h1>Profile</h1>
+          <h1>Ism: {user.full_name}</h1>
+          <h1>Manzil: {user.viloyat}</h1>
+          <h1>Id kod : {user.id_code}</h1>
+        </>
+      ) : (
+        ''
+      )}
+    </div>
+  );
 };
 
 export default Profile;
