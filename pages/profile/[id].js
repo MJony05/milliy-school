@@ -18,7 +18,7 @@ const Profile = () => {
           <h1>Id kod : {user.id_code}</h1>
         </>
       ) : (
-        ''
+        'Loading...'
       )}
     </div>
   );

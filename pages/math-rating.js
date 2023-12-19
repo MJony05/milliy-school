@@ -1,7 +1,6 @@
 import { AllUsers } from '@/context/context';
 import Link from 'next/link';
 import React, { useContext } from 'react';
-
 const MathRating = () => {
   const { mathUsers } = useContext(AllUsers);
   return (
@@ -17,5 +16,4 @@ const MathRating = () => {
     </div>
   );
 };
-
 export default MathRating;
